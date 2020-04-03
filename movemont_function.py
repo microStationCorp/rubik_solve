@@ -95,3 +95,27 @@ def move_right_a(cube):
     cube[3][:, 0] = np.flip(cube[5][:, 2].copy())
     cube[5][:, 2] = temp
     return cube
+
+
+def move_upper_c(cube):
+    # set white face
+    cube[4] = face_rotate(cube[4].copy())
+
+    temp = cube[1][0, :].copy()
+    cube[1][0, :] = cube[2][0, :].copy()
+    cube[2][0, :] = cube[3][0, :].copy()
+    cube[3][0, :] = cube[0][0, :].copy()
+    cube[0][0, :] = temp
+    return cube
+
+
+def move_upper_a(cube):
+    # set white face
+    cube[4] = face_rotate(cube[4].copy(), False)
+
+    temp = cube[1][0, :].copy()
+    cube[2][0, :] = cube[0][0, :].copy()
+    cube[0][0, :] = cube[3][0, :].copy()
+    cube[3][0, :] = cube[2][0, :].copy()
+    cube[2][0, :] = temp
+    return cube

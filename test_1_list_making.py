@@ -38,9 +38,10 @@ END = np.array([
 # back=orange, index 3
 DIRECTION = ['LA', 'LC', 'FA', 'FC', 'RA', 'RC', 'BA', 'BC', 'UA', 'UC', 'DA', 'DC']
 
-new = move_front_a(END.copy())
-print()
-for n in new:
-    for a in n:
-        print(a)
+if __name__ == '__main__':
+    new = move_front_a(END.copy())
     print()
+    for n in new:
+        for a in n:
+            print(a)
+        print()
