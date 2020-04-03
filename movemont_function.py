@@ -47,3 +47,51 @@ def move_left_c(cube):
     cube[3][:, 2] = np.flip(cube[5][:, 0].copy())
     cube[5][:, 0] = temp
     return cube
+
+
+def move_front_c(cube):
+    # set red face
+    cube[1] = face_rotate(cube[1].copy())
+
+    temp = cube[4][2, :].copy()
+    cube[4][2, :] = np.flip(cube[0][:, 2].copy())
+    cube[0][:, 2] = cube[5][0, :].copy()
+    cube[5][0, :] = np.flip(cube[2][:, 0].copy())
+    cube[2][:, 0] = temp
+    return cube
+
+
+def move_front_a(cube):
+    # set red face
+    cube[1] = face_rotate(cube[1].copy(), False)
+
+    temp = cube[4][2, :].copy()
+    cube[4][2, :] = cube[2][:, 0].copy()
+    cube[2][:, 0] = np.flip(cube[5][0, :].copy())
+    cube[5][0, :] = cube[0][:, 2].copy()
+    cube[0][:, 2] = np.flip(temp)
+    return cube
+
+
+def move_right_c(cube):
+    # set blue face
+    cube[2] = face_rotate(cube[2].copy())
+
+    temp = cube[1][:, 2].copy()
+    cube[1][:, 2] = cube[5][:, 2].copy()
+    cube[5][:, 2] = np.flip(cube[3][:, 0].copy())
+    cube[3][:, 0] = np.flip(cube[4][:, 2].copy())
+    cube[4][:, 2] = temp
+    return cube
+
+
+def move_right_a(cube):
+    # set blue face
+    cube[2] = face_rotate(cube[2].copy(), False)
+
+    temp = cube[1][:, 2].copy()
+    cube[1][:, 2] = cube[4][:, 2].copy()
+    cube[4][:, 2] = np.flip(cube[3][:, 0].copy())
+    cube[3][:, 0] = np.flip(cube[5][:, 2].copy())
+    cube[5][:, 2] = temp
+    return cube
