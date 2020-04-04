@@ -1,5 +1,4 @@
 import numpy as np
-# from . import movemont_function as mf
 from movemont_function import *
 
 END = np.array([
@@ -39,9 +38,4 @@ END = np.array([
 DIRECTION = ['LA', 'LC', 'FA', 'FC', 'RA', 'RC', 'BA', 'BC', 'UA', 'UC', 'DA', 'DC']
 
 if __name__ == '__main__':
-    new = move_front_a(END.copy())
-    print()
-    for n in new:
-        for a in n:
-            print(a)
-        print()
+    print(END[0].ravel())
